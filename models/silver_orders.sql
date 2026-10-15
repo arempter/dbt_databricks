@@ -1,6 +1,6 @@
 SELECT
     id,
-    date_format(created_at, "yyy-MM-dd") as oder_date,
+    date(date_format(created_at, "yyy-MM-dd")) as oder_date,
     user_id,
     product_id,
     quantity,
