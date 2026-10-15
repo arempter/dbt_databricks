@@ -3,7 +3,7 @@ SELECT
     created_at,
     city,
     state,
-    year(birth_date),
+    year(`birth_date`),
     source as source_channel
 FROM
 {{ ref("bronze_users")}}    
