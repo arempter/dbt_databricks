@@ -1,3 +1,9 @@
+{{
+    config(
+        tags='pii'
+    )
+}}
+
 SELECT
 * 
 FROM

@@ -37,4 +37,12 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   dbt_project:
+    bronze:
       +materialized: table
+      +schema: bronze
+    silver:
+      +materialized: table
+      +schema: silver
+    gold:
+      +materialized: view
+      +schema: gold
