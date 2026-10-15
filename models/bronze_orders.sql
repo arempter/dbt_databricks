@@ -1,3 +1,4 @@
 SELECT 
 *
-FROM dbt_project.landing.orders
+FROM 
+{{ source("landing", "orders")}}
