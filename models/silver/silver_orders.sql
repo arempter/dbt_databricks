@@ -1,3 +1,9 @@
+{{
+    config(
+        partition_by='order_date'
+    )
+}}
+
 SELECT
     id,
     date(date_format(created_at, "yyy-MM-dd")) as order_date,
