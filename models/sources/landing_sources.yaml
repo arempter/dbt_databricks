@@ -6,6 +6,14 @@ sources:
     schema: landing
     tables:
       - name: orders
+        columns:
+        - name: id
+          description: "unique ids"
+          tests:
+            - unique:
+               config:
+                serverity: "warn"
+            - not_null
       - name: products
       - name: reviews
       - name: users
