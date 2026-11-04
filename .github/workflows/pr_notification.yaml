@@ -1,0 +1,17 @@
+name: pr_comments
+on:
+  pull_request:
+    types: [opened]
+jobs:
+  on_pr_created:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+
+    steps:
+      - name: Checkout code
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: |
+          gh pr comment $PR_URL" --body "Thanks for opening this PR! The dbt project is set up to run on Databricks. Please ensure that your changes are compatible with the dev environment before merging."
