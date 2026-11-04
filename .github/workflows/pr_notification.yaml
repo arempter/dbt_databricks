@@ -1,0 +1,30 @@
+name: pr_comments
+on:
+  pull_request:
+    types: [opened, edited]
+    paths:
+      - 'models/**'
+      - 'seeds/**'
+
+jobs:
+  on_pr_created:
+    runs-on: ubuntu-24.04
+    permissions:
+      pull-requests: write
+
+    steps:
+      - name: Checkout code
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+        run: |
+          gh pr comment "$PR_URL" --body-file - <<-EOF
+          ### 👋 Hi @$PR_AUTHOR, thank you for your contribution!
+
+          We appreciate you taking the time to open this pull request. Here is what happens next:
+          - 🔍 **Automated checks** will run to verify your changes.
+          - 👥 **Maintainers** will review your code shortly.
+          
+          > Please make sure you have linked any related issues in the description!
+          EOF
