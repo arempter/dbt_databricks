@@ -1,7 +1,7 @@
 name: pr_comments
 on:
   pull_request:
-    types: [opened]
+    types: [opened, edited]
     paths:
       - 'models/**'
       - 'seeds/**'
