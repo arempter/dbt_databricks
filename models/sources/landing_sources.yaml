@@ -9,10 +9,10 @@ sources:
         columns:
         - name: id
           description: "unique ids"
-          tests:
+          data_tests:
             - unique:
                config:
-                serverity: "warn"
+                severity: warn
             - not_null
       - name: products
       - name: reviews

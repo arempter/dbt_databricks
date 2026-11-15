@@ -40,9 +40,19 @@ models:
     bronze:
       +materialized: table
       +schema: bronze
+      +freshness:
+        build_after:
+          count: 1
+          period: day
+          updates_on: any  
     silver:
       +materialized: table
       +schema: silver
+      +freshness:
+        build_after:
+          count: 1
+          period: day
+          updates_on: any        
     gold:
       +materialized: view
       +schema: gold
