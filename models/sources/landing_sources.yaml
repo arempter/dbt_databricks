@@ -5,7 +5,7 @@ sources:
     database: dbt_project
     schema: landing
     tables:
-      - name: orders
+      - name: raw_orders
         columns:
         - name: id
           description: "unique ids"
@@ -14,6 +14,7 @@ sources:
                config:
                 severity: warn
             - not_null
-      - name: products
-      - name: reviews
-      - name: users
+      - name: raw_products
+      - name: raw_stores
+      - name: raw_customers
+      - name: raw_supplies

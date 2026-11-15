@@ -1,10 +1,8 @@
 SELECT
-    id,
-    created_at,
-    title as product_name,
-    category,
-    ean,
-    vendor,
-    price
+    sku,
+    name as product_name,
+    type as category,
+    price,
+    description
 FROM
 {{ ref("bronze_products")}}

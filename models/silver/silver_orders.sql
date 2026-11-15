@@ -1,17 +1,17 @@
 {{
     config(
-        partition_by='order_date'
+        partition_by='ordered_at'
     )
 }}
 
 SELECT
     id,
-    date(date_format(created_at, "yyy-MM-dd")) as order_date,
-    user_id,
-    product_id,
-    quantity,
-    unit_price,
-    quantity * unit_price as total
+    date(date_format(ordered_at, "yyy-MM-dd")) as ordered_at,
+    customer as customer_id,
+    store_id,
+    subtotal,
+    tax_paid,
+    order_total
 FROM
 {{ ref("bronze_orders")}}
 

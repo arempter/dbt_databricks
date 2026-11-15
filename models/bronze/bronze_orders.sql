@@ -8,10 +8,10 @@
 SELECT 
 *
 FROM 
-{{ source("landing", "orders")}}
+{{ source("landing", "raw_orders")}}
 
 {% if is_incremental() %}
 
-WHERE created_at > (select coalesce(max(created_at), '1900-01-01') as max_date from {{ this }})
+WHERE ordered_at > (select coalesce(max(ordered_at), '1900-01-01') as max_date from {{ this }})
 
 {% endif %}
